@@ -1,4 +1,4 @@
 const TipaltiUser = require('./lib/user');
-const TipaltiUrl  = require('./lib/url');
+const TipaltiHash  = require('./lib/hash');
 
-module.exports = { TipaltiUrl, TipaltiUser };
+module.exports = { TipaltiHash, TipaltiUser };
