@@ -1,2 +1,2 @@
 # tipalti
-Generate tipalti urls
+Helper to generate tipalti urls.
