@@ -1,6 +1,6 @@
 {
   "name": "tipalti",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Helper to generate tipalti urls.",
   "main": "index.js",
   "repository": "git@github.com:Avocarrot/tipalti.git",
