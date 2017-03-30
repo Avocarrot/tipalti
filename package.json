@@ -10,10 +10,12 @@
     "node": "6.9.1"
   },
   "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
     "test": "export NODE_ENV='test'; find ./test -name '*.spec.js' | xargs tape",
-    "cov":  "export NODE_ENV='test'; find ./test -name '*.spec.js' | xargs istanbul cover tape"
+    "cov": "export NODE_ENV='test'; find ./test -name '*.spec.js' | xargs istanbul cover tape"
   },
   "devDependencies": {
+    "eslint": "^3.18.0",
     "tape": "^4.6.3"
   }
 }
