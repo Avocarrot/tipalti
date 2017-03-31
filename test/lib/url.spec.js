@@ -36,10 +36,11 @@ test('new TipaltiUrl.get() should return urls for sandbox', assert => {
   MockDate.set('1/1/2000', 120);
   const url = new TipaltiUrl(hash);
   const { dashboard, invoices, payments } = url.get(user);
- 
-  assert.equals(dashboard, 'http://mock.tipalti.com/payee/dashboard?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
-  assert.equals(invoices, 'http://mock.tipalti.com/payment/list?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
-  assert.equals(payments, 'http://mock.tipalti.com/payee/invoice?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
+
+  const query = '?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577';
+  assert.equals(dashboard, 'https://ui2.sandbox.tipalti.com/payeedashboard/home' + query);
+  assert.equals(payments,  'http://int.payrad.com/Payees/PaymentList.aspx' + query);
+  assert.equals(invoices,  'http://int.payrad.com/Payees/PayeeInvoiceList.aspx' + query);
   MockDate.reset();
 });
 
@@ -50,8 +51,9 @@ test('new TipaltiUrl.get() should return urls for production', assert => {
   const url = new TipaltiUrl(hash, false);
   const { dashboard, invoices, payments } = url.get(user);
  
-  assert.equals(dashboard, 'https://ui2.tipalti.com/payeedashboard/home?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
-  assert.equals(invoices, 'https://ui.tipalti.com/Payees/PayeeInvoiceList.aspx?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
-  assert.equals(payments, 'https://ui.tipalti.com/Payees/PaymentList.aspx?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
+  const query = '?ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577';
+  assert.equals(dashboard, 'https://ui2.tipalti.com/payeedashboard/home' + query);
+  assert.equals(payments,  'https://ui.tipalti.com/Payees/PaymentList.aspx' + query);
+  assert.equals(invoices,  'https://ui.tipalti.com/Payees/PayeeInvoiceList.aspx' + query);
   MockDate.reset();
 });
