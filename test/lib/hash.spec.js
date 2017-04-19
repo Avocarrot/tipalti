@@ -42,7 +42,7 @@ test('new TipaltiHash.generate() should return url instance', assert => {
   const url = hash.generate(user);
  
   const actual   = stringify(url);
-  const expected = 'ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577';
+  const expected = 'ts=946677600&payer=payer&idap=1&user=john.doe%2Bavocarrot%40mail.com&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=8648e8695f4d88b587ccaa8bbb8941f0d299a758cd01bb49790e0e8017f5aed9';
   assert.equals(actual, expected);
   MockDate.reset();
 });
@@ -58,7 +58,7 @@ test('new TipaltiHash.generate() should work for more users', assert => {
   const url2 = stringify(hash.generate(user2));
 
   assert.ok(url1 != url2);
-  assert.equals(url1, 'ts=946677600&payer=payer&idap=1&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=31432a446a1733b7e36070015ea28490b7ebad4e64017d5ae33e3ced219cb577');
-  assert.equals(url2, 'ts=946677600&payer=payer&idap=2&user=&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=dbb9117e49e06785ae9cd8607907f2ad7cb21a2c94118afc4c83f7a923eb2b74');
+  assert.equals(url1, 'ts=946677600&payer=payer&idap=1&user=john.doe%2Bavocarrot%40mail.com&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=8648e8695f4d88b587ccaa8bbb8941f0d299a758cd01bb49790e0e8017f5aed9');
+  assert.equals(url2, 'ts=946677600&payer=payer&idap=2&user=john.doe%2Bavocarrot%40mail.com&alias=john.doe%2Bavocarrot%40mail.com&email=john.doe%2Bavocarrot%40mail.com&hashkey=599c4d81d0f2708a8d2c7bca001dcb799168e2794f5788b4b49f2e19a0fbe5bb');
   MockDate.reset();
 });

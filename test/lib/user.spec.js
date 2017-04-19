@@ -18,9 +18,10 @@ test('new TipaltiUser(id) should throw AssertionError for email', assert => {
 });
 
 test('new TipaltiUser(id, email) should add email to alias', assert => {
-  assert.plan(3);
+  assert.plan(4);
   const user = new TipaltiUser(1, 'john.doe@mail.com');
   assert.equals(user.id, '1');
   assert.equals(user.email, 'john.doe@mail.com');
   assert.equals(user.alias, 'john.doe@mail.com');
+  assert.equals(user.user, 'john.doe@mail.com');
 });
