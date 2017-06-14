@@ -1,13 +1,13 @@
 {
   "name": "tipalti",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Helper to generate tipalti urls.",
   "main": "index.js",
   "repository": "git@github.com:Avocarrot/tipalti.git",
   "author": "Dmtrs <tydeas.dr@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "6.9.1"
+    "node": ">=6.9.1"
   },
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
