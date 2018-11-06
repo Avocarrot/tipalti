@@ -1,5 +1,14 @@
 const test = require('tape');
-const { TipaltiUser } = require('../../index.js');
+const { TipaltiUser, TipaltiBaseUser } = require('../../index.js');
+
+test('new TipaltiBaseUser() should throw AssertionError for id', assert => {
+  assert.plan(1);
+  try {
+    new TipaltiBaseUser();
+  } catch (err) {
+    assert.equals(err.message, 'TipaltiUser.id is required');
+  }
+});
 
 test('new TipaltiUser() should throw AssertionError for id', assert => {
   assert.plan(1);
@@ -7,6 +16,15 @@ test('new TipaltiUser() should throw AssertionError for id', assert => {
     new TipaltiUser();
   } catch (err) {
     assert.equals(err.message, 'TipaltiUser.id is required');
+  }
+});
+
+test('new TipaltiUser(id) should throw assertionerror for email', assert => {
+  assert.plan(1);
+  try {
+    new TipaltiUser(1);
+  } catch (err) {
+    assert.equals(err.message, 'TipaltiUser.email is required');
   }
 });
 
